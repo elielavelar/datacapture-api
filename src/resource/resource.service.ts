@@ -5,6 +5,7 @@ import { UpdateResourceDto } from './dto/update-resource.dto';
 @Injectable()
 export class ResourceService {
   create(createResourceDto: CreateResourceDto) {
+    console.log( createResourceDto )
     return 'This action adds a new resource';
   }
 
