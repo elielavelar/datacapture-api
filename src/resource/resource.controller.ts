@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { ResourceService } from './resource.service';
 import { CreateResourceDto } from './dto/create-resource.dto';
 import { UpdateResourceDto } from './dto/update-resource.dto';
+import { Resource } from './schemas/resource.schema'
 
 @Controller('resource')
 export class ResourceController {
@@ -18,9 +19,17 @@ export class ResourceController {
   }
 
   @Get(':id')
+  findByToken(@Param('id') token: string): Promise<Resource> {
+    console.log( token )
+    return this.resourceService.findByToken(token);
+  }
+
+  /*
+  @Get(':id')
   findOne(@Param('id') id: string) {
     return this.resourceService.findOne(+id);
   }
+  */
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateResourceDto: UpdateResourceDto) {
