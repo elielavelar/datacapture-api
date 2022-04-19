@@ -10,25 +10,26 @@ export class ResourceService {
 
   constructor(@InjectModel( Resource.name) private resourceModel: Model<ResourceDocument>){}
 
-  create(createResourceDto: CreateResourceDto) {
-    console.log( createResourceDto )
-    return 'This action adds a new resource';
+  async create(createResourceDto: CreateResourceDto): Promise<Resource> {
+    const createResource = new this.resourceModel( createResourceDto )
+    return createResource.save()
   }
 
-  findAll() {
-    return `This action returns all resource`;
+  async findAll(): Promise<Resource[]> {
+    return this.resourceModel.find().exec()
   }
 
   async findByToken(token: string): Promise<Resource> {
-    return this.resourceModel.findById(token);
+    //return this.resourceModel.findById(token);
+    return this.resourceModel.findOne({ token }).exec();
   }
 
   findOne(id: number) {
     return `This action returns a #${id} resource`;
   }
 
-  update(id: number, updateResourceDto: UpdateResourceDto) {
-    return `This action updates a #${id} resource`;
+  update(token: string, updateResourceDto: UpdateResourceDto) {
+    return this.resourceModel.updateOne({ token} , updateResourceDto)
   }
 
   remove(id: number) {

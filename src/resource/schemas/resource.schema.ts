@@ -1,29 +1,33 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from 'mongoose';
+import { Transform } from 'class-transformer';
 
 export type ResourceDocument = Resource & Document;
 
 @Schema()
 export class Resource {
-    @Prop()
+    @Transform(({ value })=> value.toString() )
+    _id: string;
+
+    @Prop({ type: String, required: true })
     name: string;
 
-    @Prop()
+    @Prop({ type: String, required: true })
     token: string;    
     
-    @Prop()
-    description: string;
-
-    @Prop()
+    @Prop({ type: String, required: true })
     type: string;
 
-    @Prop()
+    @Prop({ type: String, required: true })
+    code: string;
+    
+    @Prop({ type: String, required: false })
+    description: string;
+
+    @Prop({ type: String, required: false })
     componentid: string;
 
-    @Prop()
-    code: string;
-
-    @Prop()
+    @Prop({ type: Boolean, default: true})
     active: boolean;
 
 }

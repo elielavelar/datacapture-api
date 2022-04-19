@@ -14,13 +14,12 @@ export class ResourceController {
   }
 
   @Get()
-  findAll() {
+  findAll(): Promise<Resource[]> {
     return this.resourceService.findAll();
   }
 
   @Get(':id')
   findByToken(@Param('id') token: string): Promise<Resource> {
-    console.log( token )
     return this.resourceService.findByToken(token);
   }
 
@@ -32,8 +31,8 @@ export class ResourceController {
   */
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateResourceDto: UpdateResourceDto) {
-    return this.resourceService.update(+id, updateResourceDto);
+  update(@Param('id') token: string, @Body() updateResourceDto: UpdateResourceDto) {
+    return this.resourceService.update(token, updateResourceDto);
   }
 
   @Delete(':id')

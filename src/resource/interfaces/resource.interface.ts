@@ -1,6 +1,6 @@
 import { Document } from 'mongoose'
 export interface Resource extends Document {
-    id?: number,
+    _id?: number,
     token: string,
     name: string,
     description?: string,
