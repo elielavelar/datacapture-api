@@ -36,7 +36,7 @@ export class ResourceController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.resourceService.remove(+id);
+  remove(@Param('id') token: string) {
+    return this.resourceService.remove( token );
   }
 }

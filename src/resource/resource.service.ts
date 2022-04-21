@@ -25,14 +25,14 @@ export class ResourceService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} resource`;
+    return this.resourceModel.findOne({ id })
   }
 
   update(token: string, updateResourceDto: UpdateResourceDto) {
     return this.resourceModel.updateOne({ token} , updateResourceDto)
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} resource`;
+  remove(token: string ) {
+    return this.resourceModel.remove({ token })
   }
 }
