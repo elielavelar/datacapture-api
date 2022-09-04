@@ -30,7 +30,7 @@
     "@nestjs/swagger": "^5.2.1",
     "@typegoose/typegoose": "^9.7.1",
     "class-transformer": "^0.5.1",
-    "mongoose": "^6.2.9",
+    "mongoose": "^6.4.6",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
