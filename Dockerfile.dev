@@ -1,0 +1,5 @@
+FROM node:21-alpine3.19
+WORKDIR /app
+
+EXPOSE 3000
+ENTRYPOINT ["yarn", "start:dev"]

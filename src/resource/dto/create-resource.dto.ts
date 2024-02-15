@@ -1,10 +1,10 @@
 export class CreateResourceDto {
-    _id?: number
-    token: string
-    name: string
-    description?: string
-    code: string
-    type: string
-    active: boolean
-    componentid: string
+  _id?: string;
+  token: string;
+  name: string;
+  active: boolean;
+  code: string;
+  type: string;
+  description?: string;
+  componentId: string;
 }

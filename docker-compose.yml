@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  app:
+    image: centraldata-api:local
+    container_name: centraldata-api
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    networks:
+      - app_network
+networks:
+  app_network:
+    external: true
